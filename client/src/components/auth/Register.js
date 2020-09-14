@@ -100,11 +100,11 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 				<input
 					style={{ width: "90%" }}
 					type='submit'
-					className='btn btn-primary'
+					className='btn '
 					value='Register'
 				/>
 			</form>
-			<p className='my-1'>
+			<p className=''>
 				Already have an account? <Link to='/login'>Sign In</Link>
 			</p>
 		</div>

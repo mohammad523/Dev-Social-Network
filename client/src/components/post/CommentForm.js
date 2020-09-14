@@ -14,7 +14,7 @@ const CommentForm = ({ postId, addComment }) => {
 				<h3>Leave a Comment</h3>
 			</div>
 			<form
-				className='form my-1'
+				className='form'
 				onSubmit={(e) => {
 					e.preventDefault();
 					addComment(postId, { text });
@@ -31,7 +31,7 @@ const CommentForm = ({ postId, addComment }) => {
 					onChange={(e) => setText(e.target.value)}
 					required
 				/>
-				<input type='submit' className='btn btn-dark my-1' value='Submit' />
+				<input type='submit' className='btn btn-dark' value='Submit' />
 			</form>
 		</div>
 	);

@@ -16,7 +16,7 @@ const PostItem = ({
 	showActions,
 }) => (
 	<div
-		className='post  p-1 my-1'
+		className='post  p-1'
 		style={{ borderBottom: ".05px dashed black", margin: ".5em" }}
 	>
 		<div>
@@ -27,7 +27,7 @@ const PostItem = ({
 		</div>
 		<div style={{ marginLeft: ".5rem" }}>
 			<div className='post-and-date'>
-				<p className='my-1'>{text}</p>
+				<p className=''>{text}</p>
 				<p className='post-date'>
 					<Moment format='MM/DD/YYYY'>{date}</Moment>
 				</p>

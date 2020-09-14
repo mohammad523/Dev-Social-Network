@@ -255,7 +255,7 @@ const EditProfile = ({
 				)}
 
 				<input type='submit' className='btn btn-submit' />
-				<Link className='btn btn-light my-1' to='/dashboard'>
+				<Link className='btn btn-light' to='/dashboard'>
 					Go Back
 				</Link>
 			</form>

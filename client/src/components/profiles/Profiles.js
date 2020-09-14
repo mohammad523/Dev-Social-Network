@@ -21,9 +21,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 					<h1
 						className='developers-header'
 						style={{ textAlign: "center", color: "white" }}
-					>
-						Developers
-					</h1>
+					></h1>
 
 					<div className='profiles-widget'>
 						<p className='lead'>

@@ -58,11 +58,11 @@ const Login = ({ login, isAuthenticated }) => {
 				<input
 					style={{ width: "90%" }}
 					type='submit'
-					className='btn btn-primary'
+					className='btn '
 					value='Login'
 				/>
 			</form>
-			<p className='my-1'>
+			<p className=''>
 				Don't have an account? <Link to='/register'>Sign Up</Link>
 			</p>
 		</div>

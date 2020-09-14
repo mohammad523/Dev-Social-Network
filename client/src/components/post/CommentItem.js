@@ -14,7 +14,7 @@ const CommentItem = ({
 	deleteComment,
 }) => (
 	<div
-		className='post bg-white p-1 my-1'
+		className='post bg-white p-1'
 		style={{ borderBottom: ".05px dashed black", margin: ".5em" }}
 	>
 		<div>
