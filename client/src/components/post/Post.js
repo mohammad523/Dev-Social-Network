@@ -9,6 +9,7 @@ import PostItem from "../posts/PostItem";
 import { Link } from "react-router-dom";
 import CommentForm from "../post/CommentForm";
 import CommentItem from "./CommentItem";
+import styles from "./Post.css";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
 	useEffect(() => {
@@ -17,20 +18,21 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 	return loading || post === null ? (
 		<Spinner />
 	) : (
-		<>
-			<div className='form-holder'>
+		<div className='post-div'>
+			<div className=''>
 				<PostItem post={post} showActions={false} />
-				<CommentForm postId={post._id} />
 			</div>
-			<div className='widget-posts comments-list'>
+			<div className='comments-list'>
 				{post.comments.map((comment) => (
 					<CommentItem key={comment._id} comment={comment} postId={post._id} />
 				))}
-				<Link to='/posts' className='small-btn'>
+				<CommentForm postId={post._id} />
+
+				<Link to='/posts' className='back-comment-link '>
 					Back to posts
 				</Link>
 			</div>
-		</>
+		</div>
 	);
 };
 

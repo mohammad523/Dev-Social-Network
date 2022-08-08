@@ -5,6 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
+import styles from "./Login.css";
 
 const Login = ({ login, isAuthenticated }) => {
 	const [formData, setFormData] = useState({
@@ -27,13 +28,13 @@ const Login = ({ login, isAuthenticated }) => {
 	}
 
 	return (
-		<div className='widget-inner widget-login'>
+		<div className='login-page padding-40'>
 			<h1 className='large text-primary'>Sign In</h1>
 			<p className='lead'>
 				<i className='fas fa-user' /> Sign Into Your Account
 			</p>
 			<form className='form' onSubmit={onSubmit}>
-				<div className='form-group'>
+				<div>
 					<input
 						type='email'
 						placeholder='Email Address'
@@ -41,29 +42,27 @@ const Login = ({ login, isAuthenticated }) => {
 						value={email}
 						onChange={onChange}
 						required
-						className='text-field'
+						className='input-wide'
 					/>
 				</div>
-				<div className='form-group'>
+				<div>
 					<input
+						className='input-wide'
 						type='password'
 						placeholder='Password'
 						name='password'
 						value={password}
 						onChange={onChange}
 						minLength='6'
-						className='text-field'
 					/>
 				</div>
-				<input
-					style={{ width: "90%" }}
-					type='submit'
-					className='btn '
-					value='Login'
-				/>
+				<input type='submit' className='btn-wide ' value='Login' />
 			</form>
 			<p className=''>
-				Don't have an account? <Link to='/register'>Sign Up</Link>
+				Don't have an account?{" "}
+				<Link className='blue-text' to='/register'>
+					Sign Up
+				</Link>
 			</p>
 		</div>
 	);

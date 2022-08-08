@@ -6,6 +6,7 @@ import Moment from "react-moment";
 import moment from "moment";
 import { connect } from "react-redux";
 import { deleteEducation } from "../../actions/profile";
+import styles from "./Dashboard.css";
 
 const Education = ({ education, deleteEducation }) => {
 	const educations = education.map((edu) => (
@@ -32,11 +33,11 @@ const Education = ({ education, deleteEducation }) => {
 	));
 
 	return (
-		<Fragment>
+		<div className='edu-div'>
 			<h3 className='my-2'>Education Credentials</h3>
 			<table className='table'>
 				<thead>
-					<tr>
+					<tr className='tr-edu'>
 						<th>School</th>
 						<th className='hide-sm' style={{ backgroundColor: "none" }}>
 							Degree
@@ -47,7 +48,7 @@ const Education = ({ education, deleteEducation }) => {
 				</thead>
 				<tbody>{educations}</tbody>
 			</table>
-		</Fragment>
+		</div>
 	);
 };
 

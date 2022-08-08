@@ -38,23 +38,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 	}
 
 	return (
-		<div
-			style={{ alignItems: "center", justifyContent: "center" }}
-			className='widget-inner widget-register'
-		>
-			<h1
-				style={{ fontWeight: 10, fontSize: "55px", color: "black" }}
-				className='large text-primary'
-			>
-				Sign Up
-			</h1>
+		<div className='login-page padding-40'>
+			<h1 className='large text-primary'>Sign Up</h1>
 			<p className='lead'>
 				<i className='fas fa-user'></i> Create Your Account
 			</p>
 			<form className='form' onSubmit={(e) => onSubmit(e)}>
 				<div className='form-group'>
 					<input
-						className='text-field'
+						className='input-wide'
 						type='text'
 						placeholder='Name'
 						name='name'
@@ -64,7 +56,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 				</div>
 				<div className='form-group'>
 					<input
-						className='text-field'
+						className='input-wide'
 						type='email'
 						placeholder='Email Address'
 						value={email}
@@ -79,7 +71,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 				</div>
 				<div className='form-group'>
 					<input
-						className='text-field'
+						className='input-wide'
 						type='password'
 						placeholder='Password'
 						name='password'
@@ -89,8 +81,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 				</div>
 				<div className='form-group'>
 					<input
-						className='text-field'
-						type='password'
+						className='input-wide'
 						placeholder='Confirm Password'
 						name='password2'
 						value={password2}
@@ -100,7 +91,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 				<input
 					style={{ width: "90%" }}
 					type='submit'
-					className='btn '
+					className='btn-wide '
 					value='Register'
 				/>
 			</form>

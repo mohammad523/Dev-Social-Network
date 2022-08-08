@@ -10,11 +10,11 @@ const CommentForm = ({ postId, addComment }) => {
 
 	return (
 		<div className='post-form'>
-			<div className='bg-primary p'>
+			<div className='leave-comment'>
 				<h3>Leave a Comment</h3>
 			</div>
 			<form
-				className='form'
+				className=''
 				onSubmit={(e) => {
 					e.preventDefault();
 					addComment(postId, { text });
@@ -22,16 +22,17 @@ const CommentForm = ({ postId, addComment }) => {
 				}}
 			>
 				<textarea
-					className='text-field'
+					className='new-post-field comment-field'
 					name='text'
-					cols='30'
+					cols='20'
 					rows='5'
 					placeholder='Comment on the post'
 					value={text}
 					onChange={(e) => setText(e.target.value)}
 					required
 				/>
-				<input type='submit' className='btn btn-dark' value='Submit' />
+				<br />
+				<input type='submit' className='post-btn' value='Comment' />
 			</form>
 		</div>
 	);

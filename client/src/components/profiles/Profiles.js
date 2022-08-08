@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import ProfileItem from "./ProfileItem";
 import { getProfiles } from "../../actions/profile";
+import styles from "./Profiles.css";
 
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 	useEffect(() => {
@@ -17,28 +18,23 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 			{loading ? (
 				<Spinner />
 			) : (
-				<>
-					<h1
-						className='developers-header'
-						style={{ textAlign: "center", color: "white" }}
-					></h1>
+				<div className='profiles-div desktop'>
+					<h1 className='developers-header'>Developers</h1>
 
-					<div className='profiles-widget'>
-						<p className='lead'>
-							<i className='fab fa-connectdevelop' /> Browse and connect with
-							developers
-						</p>
-						<div className='profiles'>
-							{profiles.length > 0 ? (
-								profiles.map((profile) => (
-									<ProfileItem key={profile._id} profile={profile} />
-								))
-							) : (
-								<h4>No profiles found...</h4>
-							)}
-						</div>
+					<p className='sub-header-devs'>
+						<i className='fab fa-connectdevelop' />
+						Browse and connect with developers
+					</p>
+					<div className='profiles'>
+						{profiles.length > 0 ? (
+							profiles.map((profile) => (
+								<ProfileItem key={profile._id} profile={profile} />
+							))
+						) : (
+							<h4>No profiles found...</h4>
+						)}
 					</div>
-				</>
+				</div>
 			)}
 		</>
 	);

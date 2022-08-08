@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import styles from "./Profiles.css";
 
 const ProfileItem = ({
 	profile: {
@@ -15,16 +16,21 @@ const ProfileItem = ({
 }) => {
 	return (
 		<div className='profile-list-item'>
-			<img src={avatar} alt='' className='round-img' />
-			<div>
-				<h2>{name}</h2>
-				<p>
-					{status} {company && <span> at {company}</span>}
-				</p>
-				<p className=''>{location && <span>{location}</span>}</p>
-				<Link to={`/profile/${_id}`} className='small-btn vp-btn'>
-					View Profile
-				</Link>
+			<div className='profiles-big-div'>
+				<div className='profile-flexbox'>
+					<img src={avatar} alt='' className='small-round-dp' />
+				</div>
+
+				<div className='profile-grid'>
+					<h2 className='profiles-name'>{name}</h2>
+					<p>
+						{status} {company && <span> at {company}</span>}
+					</p>
+					<p className=''>{location && <span>{location}</span>}</p>
+					<Link to={`/profile/${_id}`} className=''>
+						View Profile
+					</Link>
+				</div>
 			</div>
 			<ul className='skills'>
 				{skills.slice(0, 4).map((skill, index) => (

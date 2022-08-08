@@ -5,6 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addExperience } from "../../actions/profile";
+import styles from "./Profile-forms.css";
 
 const AddExperience = ({ addExperience, history }) => {
 	const [formData, setFormData] = useState({
@@ -25,14 +26,14 @@ const AddExperience = ({ addExperience, history }) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	return (
 		<div className='add-exp-widget'>
-			<h1 className='large text-primary'>Add An Experience</h1>
-			<p className='lead'>
+			<h1 className='p-15'>Add An Experience</h1>
+			<p className='create-profile-lead'>
 				<i className='fas fa-code-branch' /> Add any developer/programming
 				positions that you have had in the past
 			</p>
-			<small>* = required field</small>
+			<small className='p-15'>* = required field</small>
 			<form
-				className='form'
+				className='edit-profile-form'
 				onSubmit={(e) => {
 					e.preventDefault();
 					addExperience(formData, history);
@@ -40,7 +41,7 @@ const AddExperience = ({ addExperience, history }) => {
 			>
 				<div className='form-group'>
 					<input
-						className='text-field'
+						className='profile-field'
 						type='text'
 						placeholder='* Job Title'
 						name='title'
@@ -51,7 +52,7 @@ const AddExperience = ({ addExperience, history }) => {
 				</div>
 				<div className='form-group'>
 					<input
-						className='text-field'
+						className='profile-field'
 						type='text'
 						placeholder='* Company'
 						name='company'
@@ -62,7 +63,7 @@ const AddExperience = ({ addExperience, history }) => {
 				</div>
 				<div className='form-group'>
 					<input
-						className='text-field'
+						className='profile-field'
 						type='text'
 						placeholder='Location'
 						name='location'
@@ -73,7 +74,7 @@ const AddExperience = ({ addExperience, history }) => {
 				<div className='form-group'>
 					<h4>From Date</h4>
 					<input
-						className='text-field'
+						className='profile-field'
 						type='date'
 						name='from'
 						value={from}
@@ -83,7 +84,7 @@ const AddExperience = ({ addExperience, history }) => {
 				<div className='form-group'>
 					<p>
 						<input
-							className='text-field'
+							className='p-20 fs-20'
 							type='checkbox'
 							name='current'
 							checked={current}
@@ -93,14 +94,13 @@ const AddExperience = ({ addExperience, history }) => {
 								toggleDisabled(!toDateDisabled);
 							}}
 						/>{" "}
-						<br />
-						Current Job
+						This is My Current Job
 					</p>
 				</div>
 				<div className='form-group'>
 					<h4>To Date</h4>
 					<input
-						className='text-field'
+						className='profile-field'
 						type='date'
 						name='to'
 						value={to}
@@ -110,7 +110,7 @@ const AddExperience = ({ addExperience, history }) => {
 				</div>
 				<div className='form-group'>
 					<textarea
-						className='text-field'
+						className='profile-field'
 						name='description'
 						cols='30'
 						rows='5'
@@ -119,8 +119,8 @@ const AddExperience = ({ addExperience, history }) => {
 						onChange={(e) => onChange(e)}
 					/>
 				</div>
-				<input type='submit' className='btn ' />
-				<Link className='btn btn-light' to='/dashboard'>
+				<input type='submit' className='btn-wide' />
+				<Link className='p-15' to='/dashboard'>
 					Go Back
 				</Link>
 			</form>

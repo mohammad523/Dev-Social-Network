@@ -9,6 +9,7 @@ import DashboardActions from "./DashboardActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import { getCurrentProfile, deleteAccount } from "../../actions/profile";
+import styles from "./Dashboard.css";
 
 const Dashboard = ({
 	getCurrentProfile,
@@ -23,23 +24,23 @@ const Dashboard = ({
 	return loading && profile === null ? (
 		<Spinner />
 	) : (
-		<div className='widget-inner widget-dashboard'>
-			<h1 className=''>Dashboard</h1>
-			<p className='lead '>
+		<div className='my-dashboard desktop'>
+			<h1 className='dashboard-title'>Dashboard</h1>
+			<p className='sub-header-dashboard '>
 				<i className='fas fa-user' /> Welcome {user && user.name}
 			</p>
 			{profile !== null ? (
-				<Fragment>
+				<div className='dashboard-exp-edu'>
 					<DashboardActions />
 					<Experience experience={profile.experience} />
 					<Education education={profile.education} />
 
-					<div className='my-2'>
-						<button className='btn btn-danger' onClick={() => deleteAccount()}>
-							<i className='fas fa-user-minus' /> Delete My Account
+					<div className='delete-account-btn'>
+						<button className='btn-danger' onClick={() => deleteAccount()}>
+							Delete My Account
 						</button>
 					</div>
-				</Fragment>
+				</div>
 			) : (
 				<Fragment>
 					<p>You have not yet setup a profile, please add some info</p>

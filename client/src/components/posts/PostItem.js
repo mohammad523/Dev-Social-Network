@@ -15,59 +15,73 @@ const PostItem = ({
 	post: { _id, text, name, avatar, user, likes, comments, date },
 	showActions,
 }) => (
-	<div
-		className='post  p-1'
-		style={{ borderBottom: ".05px dashed black", margin: ".5em" }}
-	>
+	<div className='post-item'>
 		<div>
 			<Link className='img-name' to={`/profile/${user}`}>
-				<img className='round-img' src={avatar} alt='' />
-				<h4>{name}</h4>
+				<img className='post-item-img' src={avatar} alt='' />
 			</Link>
 		</div>
-		<div style={{ marginLeft: ".5rem" }}>
-			<div className='post-and-date'>
-				<p className=''>{text}</p>
-				<p className='post-date'>
-					<Moment format='MM/DD/YYYY'>{date}</Moment>
-				</p>
+		<div className='post-item-content'>
+			<div className='name-date'>
+				<Link className='post-user-name' to={`/profile/${user}`}>
+					{name}
+				</Link>
+				<Moment className='post-date' format='MM/DD/YYYY'>
+					{date}
+				</Moment>
+			</div>
+
+			<div className='post-text-div'>
+				<p className='post-item-text'>{text}</p>
 			</div>
 
 			{showActions && (
 				<div className='post-actions'>
-					<button
-						onClick={() => addLike(_id)}
-						type='button'
-						className='btn btn-light'
-					>
-						<i className='fas fa-thumbs-up' />{" "}
-						<span>{likes.length > 0 && <span>{likes.length}</span>}</span>
-					</button>
-					<button
-						onClick={() => removeLike(_id)}
-						type='button'
-						className='btn btn-light'
-					>
-						<i className='fas fa-thumbs-down' />
-					</button>
-					<Link
-						to={`/posts/${_id}`}
-						className='small-btn comments'
-						style={{ fontSize: "15px" }}
-					>
-						Comments{" "}
-						{comments.length > 0 && (
-							<span className='comment-count'>({comments.length})</span>
-						)}
-					</Link>
-					{!auth.loading && user === auth.user._id && (
+					<span>
 						<button
-							onClick={() => deletePost(_id)}
+							onClick={() => addLike(_id)}
 							type='button'
-							className='btn btn-danger'
+							className='small-btn '
 						>
-							<i className='fas fa-times' />
+							<i className='fas fa-thumbs-up' />{" "}
 						</button>
+						<span className='action-name'>Like</span>{" "}
+						<span>{likes.length > 0 && <span>({likes.length})</span>}</span>
+					</span>
+					<span>
+						<button
+							onClick={() => removeLike(_id)}
+							type='button'
+							className='small-btn '
+						>
+							<i className='fas fa-thumbs-down' />
+						</button>
+						<span className='action-name'>Unlike</span>
+					</span>
+
+					<span className='comment-button'>
+						<span className='small-btn'>
+							<Link to={`/posts/${_id}`}>
+								<i class='fa-solid fa-comment'></i>
+
+								{comments.length > 0 && (
+									<span className='comment-count'>({comments.length})</span>
+								)}
+							</Link>
+						</span>
+						<span className='action-name'>Comment</span>
+					</span>
+
+					{!auth.loading && user === auth.user._id && (
+						<span>
+							<button
+								onClick={() => deletePost(_id)}
+								type='button'
+								className='small-btn'
+							>
+								<i className='fas fa-times' />
+							</button>
+						</span>
 					)}
 				</div>
 			)}

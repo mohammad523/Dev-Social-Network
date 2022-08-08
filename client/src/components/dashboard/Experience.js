@@ -6,6 +6,7 @@ import Moment from "react-moment";
 import moment from "moment";
 import { connect } from "react-redux";
 import { deleteExperience } from "../../actions/profile";
+import styles from "./Dashboard.css";
 
 const Experience = ({ experience, deleteExperience }) => {
 	const experiences = experience.map((exp) => (
@@ -32,20 +33,20 @@ const Experience = ({ experience, deleteExperience }) => {
 	));
 
 	return (
-		<Fragment>
-			<h3 className='my-2'>Experience Credentials</h3>
+		<div className='exp-div'>
+			<h3 className='my-2'>Experience</h3>
 			<table className='table'>
 				<thead>
-					<tr>
+					<tr className='tr-exp'>
 						<th>Company</th>
-						<th className='hide-sm'>Title</th>
-						<th className='hide-sm'>Years</th>
+						<th className='exp-title'>Title</th>
+						<th className='exp-years'>Years</th>
 						<th />
 					</tr>
 				</thead>
 				<tbody>{experiences}</tbody>
 			</table>
-		</Fragment>
+		</div>
 	);
 };
 
