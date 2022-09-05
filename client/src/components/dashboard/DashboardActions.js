@@ -8,11 +8,9 @@ const DashboardActions = () => {
 	return (
 		<div className='dash-buttons'>
 			<Link to='/edit-profile' className='btn-narrow '>
-				{/* <i className='fas fa-user-circle text-primary' /> */}
 				Edit Profile
 			</Link>
 			<Link to='/add-experience' className='btn-narrow '>
-				{/* <i className='fab fa-black-tie text-primary' />  */}
 				Add Experience
 			</Link>
 			<Link to='/add-education' className='btn-narrow'>
